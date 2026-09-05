@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ปฏิทินโหราศาสตร์ไทย</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <h1>ปฏิทินโหราศาสตร์ไทย</h1>
+      <p>เลือกวันและเวลาเพื่อคำนวณสมผุสดาว 10 ดวง</p>
+    </div>
+    <div class="top-version">ตามหลักคัมภีร์สุริยยาตร์</div>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- ① ตารางปฏิทิน -->
+    <section class="card calendar-card">
+      <div class="section-head">
+        <span class="badge">๑</span>
+        <div>
+          <h2>ตารางปฏิทิน</h2>
+          <p>เลือกวัน เดือน ปี และเวลา</p>
+        </div>
+      </div>
+
+      <div class="calendar-controls">
+        <button id="previousMonth" class="nav-button" aria-label="เดือนก่อน">‹</button>
+        <select id="month" aria-label="เดือน"></select>
+        <input id="year" type="number" value="2569" aria-label="ปี พ.ศ.">
+        <button id="nextMonth" class="nav-button" aria-label="เดือนถัดไป">›</button>
+      </div>
+
+      <div class="time-controls">
+        <label>เวลา <input id="time" type="time" value="09:00"></label>
+        <button id="today" class="today-button">วันนี้</button>
+      </div>
+
+      <h3 id="calendarTitle" class="month-title">กันยายน 2569</h3>
+
+      <div class="weekdays">
+        <span>อา</span><span>จ</span><span>อ</span><span>พ</span>
+        <span>พฤ</span><span>ศ</span><span>ส</span>
+      </div>
+      <div id="calendar" class="calendar"></div>
+
+      <div class="selected-box">
+        <div class="selected-label">วันที่เลือก</div>
+        <div id="selectedDate" class="selected-date">5 กันยายน 2569</div>
+        <div id="timeNote" class="selected-time">เวลา 09:00 น.</div>
+        <div id="calculationNote" class="selected-calendar">จ.ศ. 1388 · หรคุณ 507121</div>
+      </div>
+    </section>
+
+    <!-- ② ราศีจักร -->
+    <section class="card zodiac-card">
+      <div class="section-head zodiac-head">
+        <div>
+          <span class="badge">๒</span>
+          <div class="section-head-copy">
+            <h2>ราศีจักร</h2>
+            <p>แสดงดาวตามราศีที่คำนวณได้</p>
+          </div>
+        </div>
+        <div class="zodiac-date">
+          <strong id="zodiacDate">5 กันยายน 2569</strong>
+          <span id="zodiacTime">เวลา 09:00 น.</span>
+        </div>
+      </div>
+
+      <div class="zodiac-stage">
+        <img class="zodiac-base" src="zodiac_wheel.svg?v=3.0" alt="ราศีจักร">
+        <div id="planetLayer" class="planet-layer"></div>
+      </div>
+<div class="zodiac-note">
+        <span>ราศีจักรเป็นภาพอ้างอิง</span>
+        <span>เลข ๑–๙, ๐ แทนดาว</span>
+        <span>องศาอ่านจากตารางด้านขวา</span>
+      </div>
+    </section>
+
+    <!-- ③ ตารางตำแหน่งดาว -->
+    <section class="card planet-card">
+      <div class="section-head">
+        <span class="badge">๓</span>
+        <div>
+          <h2>ตารางตำแหน่งดาว</h2>
+          <p>สมผุสดาวจากการคำนวณ</p>
+        </div>
+        <span id="planetCount" class="count">10 ดวง</span>
+      </div>
+
+      <div class="table-wrap">
+        <table class="planet-table">
+          <thead>
+            <tr>
+              <th>เลข</th><th>ดาว</th><th>ราศี</th>
+              <th>องศา</th><th>ลิปดา</th>
+            </tr>
+          </thead>
+          <tbody id="planetTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="legend">
+        <h3>เลขดาว</h3>
+        <div class="legend-grid">
+          <span><b>๑</b> อาทิตย์</span><span><b>๒</b> จันทร์</span>
+          <span><b>๓</b> อังคาร</span><span><b>๔</b> พุธ</span>
+          <span><b>๕</b> พฤหัส</span><span><b>๖</b> ศุกร์</span>
+          <span><b>๗</b> เสาร์</span><span><b>๘</b> ราหู</span>
+          <span><b>๙</b> เกตุ</span><span><b>๐</b> มฤตยู</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer>พัฒนาโดย นายดิลก ภิญโญศรี</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
