@@ -1,186 +1,135 @@
 *{box-sizing:border-box}
 :root{
- --ink:#102b2e;--muted:#68777a;--line:#e2e7e5;--page:#f6f8f7;
- --paper:#fff;--green:#247650;--green-soft:#edf6ef;
- --shadow:0 7px 24px rgba(24,44,40,.07)
+  --ink:#102f32;
+  --ink-2:#193f42;
+  --muted:#718083;
+  --line:#dfe8e4;
+  --line-2:#edf2ef;
+  --page:#f4f7f5;
+  --paper:#ffffff;
+  --green:#17784f;
+  --green-2:#239261;
+  --green-soft:#eaf6ee;
+  --green-pale:#f3faf5;
+  --gold:#c9973b;
+  --shadow:0 10px 30px rgba(27,59,51,.08);
 }
-html,body{margin:0;background:var(--page);color:var(--ink);
- font-family:Tahoma,"Noto Sans Thai",Arial,sans-serif}
-body{padding:16px}
-.app-shell{width:min(1535px,100%);margin:auto}
-.topbar{display:flex;justify-content:space-between;align-items:end;
- padding:0 8px 14px;gap:20px}
-h1{margin:0 0 5px;font-size:31px;line-height:1.1}
-.topbar p{margin:0;color:var(--muted);font-size:15px}
-.top-version{color:var(--muted);font-size:13px;white-space:nowrap}
-.dashboard{display:grid;grid-template-columns:300px minmax(560px,1fr) 380px;
- gap:12px;align-items:stretch}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;
- box-shadow:var(--shadow);overflow:hidden}
-.calendar-card,.zodiac-card,.planet-card{min-height:790px}
-.section-head{display:flex;align-items:center;gap:11px;padding:17px 16px 14px}
+html,body{margin:0;min-height:100%;background:var(--page);color:var(--ink);font-family:Tahoma,"Noto Sans Thai",Arial,sans-serif}
+body{padding:14px 18px 10px}
+button,input,select{font:inherit}
+button,select,input{outline:none}
+.app-shell{width:min(1580px,100%);margin:auto}
+
+/* Header */
+.topbar{position:relative;display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:74px;padding:0 18px 13px;overflow:hidden}
+.topbar:after{content:"";position:absolute;left:42%;right:0;bottom:0;height:58px;opacity:.55;background:
+  radial-gradient(ellipse at 15% 100%,#dcefe2 0 28%,transparent 29%),
+  radial-gradient(ellipse at 36% 100%,#d9ebdf 0 32%,transparent 33%),
+  radial-gradient(ellipse at 59% 100%,#e0efe4 0 29%,transparent 30%),
+  linear-gradient(to top,rgba(205,230,213,.38),transparent 75%);pointer-events:none}
+.brand{display:flex;align-items:center;gap:13px;position:relative;z-index:1}
+.brand-mark{width:54px;height:54px;border:2px solid #d3a14a;border-radius:50%;display:grid;place-items:center;color:#c28a27;font-size:38px;line-height:1;background:radial-gradient(circle,#fff 42%,#fff8e9 43% 58%,transparent 59%)}
+.brand-copy h1{margin:0 0 4px;font-size:32px;line-height:1.08;letter-spacing:-.4px}
+.brand-copy p{margin:0;color:var(--muted);font-size:14px}
+.top-version{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:3px;color:var(--green);font-size:12px;white-space:nowrap}
+.top-version strong{font-size:15px;color:var(--ink-2)}
+
+/* Dashboard */
+.dashboard{display:grid;grid-template-columns:365px minmax(600px,1fr) 410px;gap:13px;align-items:stretch}
+.card{background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow);overflow:hidden}
+.calendar-card,.zodiac-card,.planet-card{min-height:765px}
+.section-head{display:flex;align-items:center;gap:11px;padding:18px 18px 14px}
 .section-head>div:nth-child(2){min-width:0}
-.badge{width:34px;height:34px;display:grid;place-items:center;flex:none;
- border-radius:50%;background:var(--green-soft);color:var(--green);font-weight:700;font-size:18px}
-.section-head h2{margin:0;font-size:22px;line-height:1.2}
+.badge{width:36px;height:36px;display:grid;place-items:center;flex:none;border-radius:50%;background:#dff3e6;color:var(--green);font-weight:800;font-size:20px}
+.section-head h2{margin:0;font-size:23px;line-height:1.2;letter-spacing:-.2px}
 .section-head p{margin:3px 0 0;color:var(--muted);font-size:12px}
 
-/* ① */
-.calendar-controls{display:grid;grid-template-columns:42px 1fr 80px 42px;
- gap:7px;padding:0 14px}
-.calendar-controls select,.calendar-controls input,.nav-button,
-.time-controls input,.today-button{
- height:42px;border:1px solid #dce2df;background:#fff;border-radius:9px}
-.calendar-controls select,.calendar-controls input{padding:0 9px;min-width:0}
-.nav-button{font-size:27px;line-height:1}
-.time-controls{display:flex;align-items:center;justify-content:space-between;
- padding:10px 14px 0}
-.time-controls label{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:13px}
-.time-controls input{width:108px;padding:0 9px}
-.today-button{padding:0 15px;background:var(--green-soft);
- border-color:#d6e7da;color:#1f6848;font-weight:700}
-.month-title{font-size:24px;margin:22px 16px 15px}
+/* ① Calendar */
+.calendar-controls{display:grid;grid-template-columns:44px 1fr 82px 44px;gap:8px;padding:0 17px}
+.calendar-controls select,.calendar-controls input,.nav-button,.time-picker,.time-picker select,.today-button{height:44px;border:1px solid #d7e1dc;background:#fff;border-radius:10px}
+.calendar-controls select,.calendar-controls input{padding:0 10px;min-width:0;color:var(--ink)}
+.nav-button{font-size:28px;line-height:1;cursor:pointer;transition:.15s ease}
+.nav-button:hover{border-color:#a9cdb8;background:var(--green-pale);color:var(--green)}
+.time-controls{display:flex;align-items:center;justify-content:space-between;padding:11px 17px 0}
+.time-picker-wrap{display:flex;align-items:center;gap:8px}
+.time-label{color:var(--muted);font-size:13px}
+.time-picker{display:flex;align-items:center;width:125px;padding:0 7px;background:#fff}
+.time-picker select{height:40px;border:0;border-radius:7px;padding:0 2px;background:transparent;color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer;appearance:auto}
+.time-picker select:first-child{width:48px;text-align:center}
+.time-picker select:last-child{width:48px;text-align:center}
+.time-colon{font-weight:800;color:var(--ink);line-height:1}
+.today-button{padding:0 18px;background:var(--green);border-color:var(--green);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 5px 12px rgba(23,120,79,.16)}
+.today-button:hover{background:#126943}
+.month-title{font-size:25px;margin:22px 18px 13px;letter-spacing:-.2px}
 .weekdays,.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.weekdays{padding:0 14px;margin-bottom:7px;text-align:center;color:var(--muted);font-size:12px}
-.calendar{padding:0 14px}
-.day{min-height:45px;border:0;background:#f7f9f8;border-radius:9px;font-size:15px}
-.day.selected{background:var(--green);color:#fff;font-weight:700;box-shadow:0 4px 9px rgba(36,118,80,.18)}
-.day.is-today:not(.selected){outline:2px solid #b7d8c3}
+.weekdays{padding:0 17px;margin-bottom:7px;text-align:center;color:var(--muted);font-size:12px}
+.calendar{padding:0 17px}
+.day{min-height:46px;border:0;background:#f5f8f6;border-radius:10px;font-size:14px;color:var(--ink);cursor:pointer;transition:.15s ease}
+.day:hover{background:#e8f3ec}
+.day.selected{background:var(--green);color:#fff;font-weight:800;box-shadow:0 5px 11px rgba(23,120,79,.20)}
+.day.is-today:not(.selected){outline:2px solid #afd2bd;outline-offset:-1px}
 .day.empty{visibility:hidden}
-.selected-box{margin:18px 14px 14px;padding:14px;border-radius:12px;background:#f3f8f4}
-.selected-label{font-size:12px;color:var(--muted);margin-bottom:5px}
-.selected-date{font-size:17px;font-weight:700}
+.selected-box{position:relative;margin:19px 17px 16px;padding:16px 16px 16px 53px;border-radius:13px;background:linear-gradient(135deg,#f0f8f3,#f7fbf8);border:1px solid #e1eee5}
+.selected-box:before{content:"▣";position:absolute;left:17px;top:17px;width:27px;height:27px;display:grid;place-items:center;color:var(--green);font-size:21px}
+.selected-label{font-size:12px;color:var(--muted);margin-bottom:4px}
+.selected-date{font-size:18px;font-weight:800}
 .selected-time{font-size:14px;margin-top:3px}
 .selected-calendar{font-size:12px;color:var(--muted);margin-top:8px}
 
-/* ② */
+/* ② Zodiac */
 .zodiac-card{display:flex;flex-direction:column}
 .zodiac-head{justify-content:space-between;align-items:start}
 .zodiac-head>div:first-child{display:flex;gap:11px}
-.zodiac-date{text-align:right;display:flex;flex-direction:column;gap:2px}
-.zodiac-date strong{font-size:20px}.zodiac-date span{font-size:15px;font-weight:700}
-.zodiac-stage{position:relative;width:min(100%,680px);aspect-ratio:1;margin:0 auto;
- display:grid;place-items:center}
+.zodiac-date{text-align:right;display:flex;flex-direction:column;gap:2px;padding-top:1px}
+.zodiac-date strong{font-size:20px;line-height:1.15}.zodiac-date span{font-size:14px;font-weight:800}
+.zodiac-stage{position:relative;width:min(100%,720px);aspect-ratio:1;margin:0 auto;display:grid;place-items:center;padding:0 8px}
 .zodiac-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.planet-layer{position:absolute;inset:0;pointer-events:none}
-.planet-marker{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;
- border-radius:50%;display:grid;place-items:center;background:var(--planet-color);
- border:3px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.2);z-index:5}
-.planet-number{color:#fff;font-size:23px;font-weight:700;line-height:1}
-.planet-tooltip{display:none;position:absolute;bottom:48px;left:50%;
- transform:translateX(-50%);background:#172b2d;color:#fff;border-radius:7px;
- padding:5px 8px;font-size:11px;white-space:nowrap}
+.planet-layer{position:absolute;inset:0;pointer-events:none;z-index:20}
+.planet-marker{position:absolute;width:auto;height:auto;min-width:0;min-height:0;border:0;border-radius:0;background:transparent!important;box-shadow:none;transform:translate(-50%,-50%);display:block;z-index:30;pointer-events:auto;transition:left .15s ease,top .15s ease}
+.planet-number{display:block;color:var(--planet-color);font-family:Tahoma,"Noto Sans Thai",sans-serif;font-size:29px;font-weight:900;line-height:1;text-shadow:0 1px 2px rgba(255,255,255,.96),0 0 4px rgba(255,255,255,.92)}
+.planet-tooltip{display:none;position:absolute;bottom:35px;left:50%;transform:translateX(-50%);background:#173437;color:#fff;border-radius:7px;padding:5px 8px;font-size:11px;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.15)}
 .planet-marker:hover .planet-tooltip{display:block}
-.zodiac-note{display:flex;justify-content:center;gap:14px;color:var(--muted);
- font-size:11px;padding:2px 10px 14px}
-.zodiac-note span+span{border-left:1px solid var(--line);padding-left:14px}
+.zodiac-note{margin:0 24px 13px;padding:10px 12px;border-radius:12px;background:#f2f8f4;border:1px solid #e4eee8;display:flex;justify-content:center;gap:14px;color:#667878;font-size:11px}
+.zodiac-note span+span{border-left:1px solid #d5e2da;padding-left:14px}
 
-/* ③ */
+/* ③ Planet table */
 .planet-card{padding-bottom:14px}
 .planet-card>.section-head{position:relative}
 .count{margin-left:auto;color:var(--green);font-size:12px}
-.table-wrap{margin:0 12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.planet-table{width:100%;border-collapse:collapse;font-size:13px}
-.planet-table th{background:#f5f8f6;padding:9px 6px;border-bottom:1px solid var(--line);
- white-space:nowrap;text-align:center}
-.planet-table td{padding:7px 6px;border-bottom:1px solid #edf0ef;white-space:nowrap}
+.table-wrap{margin:0 13px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.planet-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+.planet-table th{background:#eef6f1;color:var(--ink-2);padding:9px 6px;border-bottom:1px solid #dce8e1;white-space:nowrap;text-align:center;font-size:12px}
+.planet-table td{padding:8px 6px;border-bottom:1px solid #edf1ef;white-space:nowrap;background:#fff}
+.planet-table tbody tr:nth-child(even) td{background:#fbfcfb}
+.planet-table tbody tr:hover td{background:#f3faf5}
 .planet-table tbody tr:last-child td{border-bottom:0}
-.number-cell{text-align:center;font-size:17px;font-weight:700}
-.planet-name-cell{font-weight:600}.rasi-cell{text-align:center}
-.degree-cell,.minute-cell,.second-cell{text-align:center;
- font-family:"Times New Roman",Tahoma,sans-serif;font-weight:700}
-.legend{margin:14px 12px 0;padding:12px 13px;border-radius:12px;background:var(--green-soft)}
-.legend h3{font-size:14px;margin:0 0 8px}
-.legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;font-size:12px}
-.legend-grid b{display:inline-block;width:23px;font-size:15px}
-footer{text-align:right;color:var(--green);font-size:11px;padding:8px}
+.number-cell{text-align:center;font-size:18px;font-weight:900;color:var(--planet-color)}
+.planet-name-cell{font-weight:700}.rasi-cell{text-align:center}
+.degree-cell,.minute-cell,.second-cell{text-align:center;font-family:"Times New Roman",Tahoma,sans-serif;font-weight:800}
+.legend{margin:14px 13px 0;padding:13px 14px;border-radius:13px;background:linear-gradient(135deg,#eff8f2,#f6fbf8);border:1px solid #e2eee6}
+.legend h3{font-size:15px;margin:0 0 9px;color:var(--ink-2)}
+.legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:12px}
+.legend-grid b{display:inline-block;width:25px;color:var(--green);font-size:16px}
 
-@media(max-width:1250px){
- .dashboard{grid-template-columns:270px minmax(500px,1fr) 340px}
+/* Footer */
+footer{display:flex;justify-content:space-between;align-items:center;color:var(--green);font-size:11px;padding:9px 14px 0}
+footer span:first-child{color:#657577;font-style:italic}
+
+@media(max-width:1350px){
+  .dashboard{grid-template-columns:320px minmax(540px,1fr) 370px}
+  .brand-copy h1{font-size:29px}
 }
-@media(max-width:1050px){
- body{padding:10px}.topbar{align-items:start;flex-direction:column}
- .top-version{display:none}.dashboard{grid-template-columns:1fr}
- .calendar-card,.zodiac-card,.planet-card{min-height:auto}
- .zodiac-stage{width:min(100%,720px)}
+@media(max-width:1120px){
+  body{padding:10px}.topbar{align-items:flex-start}.top-version{display:none}
+  .dashboard{grid-template-columns:1fr}
+  .calendar-card,.zodiac-card,.planet-card{min-height:auto}
+  .zodiac-stage{width:min(100%,720px)}
 }
 @media(max-width:600px){
- h1{font-size:25px}.calendar-controls{grid-template-columns:40px 1fr 72px 40px}
- .zodiac-head{flex-direction:column}.zodiac-date{text-align:left}
- .zodiac-note{flex-direction:column;align-items:center;gap:4px}
- .zodiac-note span+span{border:0;padding:0}
-}
-
-
-
-/* Ring marker label for debugging the test layout */
-.planet-marker[data-ring]::after {
-  content:"";
-}
-
-.planet-marker {
-  transition:left .15s ease, top .15s ease;
-}
-
-/* V2.8 real planet layout */
-.planet-layer{
-  position:absolute;
-  inset:0;
-  z-index:20;
-  pointer-events:none;
-}
-.planet-marker{
-  position:absolute;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  transform:translate(-50%,-50%);
-  background:var(--planet-color);
-  border:3px solid #fff;
-  box-shadow:0 3px 8px rgba(0,0,0,.20);
-  pointer-events:auto;
-}
-.planet-number{
-  color:#fff;
-  font-size:21px;
-  font-weight:700;
-  line-height:1;
-}
-
-
-/* V3.1 — แสดงเฉพาะเลขดาวแบบสี ไม่มีวงกลม */
-.planet-marker {
-  position: absolute;
-  width: auto;
-  height: auto;
-  min-width: 0;
-  min-height: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent !important;
-  box-shadow: none;
-  transform: translate(-50%, -50%);
-  display: block;
-  z-index: 30;
-  pointer-events: auto;
-}
-
-.planet-number {
-  display: block;
-  color: var(--planet-color);
-  font-family: Tahoma, "Noto Sans Thai", sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1;
-  text-shadow:
-    0 1px 2px rgba(255,255,255,.95),
-    0 0 3px rgba(255,255,255,.95);
-}
-
-@media (max-width: 700px) {
-  .planet-number {
-    font-size: 23px;
-  }
+  body{padding:7px}.brand-mark{width:45px;height:45px;font-size:31px}.brand-copy h1{font-size:24px}.brand-copy p{font-size:12px}
+  .calendar-controls{grid-template-columns:40px 1fr 72px 40px}
+  .zodiac-head{flex-direction:column}.zodiac-date{text-align:left}
+  .zodiac-note{flex-direction:column;align-items:center;gap:4px}.zodiac-note span+span{border:0;padding:0}
+  footer{flex-direction:column;gap:5px;text-align:center}
+  .planet-number{font-size:24px}
 }

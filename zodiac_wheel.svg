@@ -2,57 +2,57 @@
   <rect width="700" height="700" fill="white"/>
 
   <!-- วงกลมราศี -->
-  <circle cx="350" cy="350" r="305" fill="none" stroke="#111" stroke-width="4"/>
-  <circle cx="350" cy="350" r="294" fill="none" stroke="#111" stroke-width="2"/>
+  <circle cx="350" cy="350" r="305" fill="none" stroke="#D4AF37" stroke-width="4"/>
+  <circle cx="350" cy="350" r="294" fill="none" stroke="#D4AF37" stroke-width="2"/>
 
   <!-- เส้นตั้ง: ปลายเส้นอยู่บนวงกลมชั้นในพอดี -->
   <line x1="310" y1="58.7" x2="310" y2="641.3"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
   <line x1="390" y1="58.7" x2="390" y2="641.3"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
 
   <!-- เส้นนอน: ปลายเส้นอยู่บนวงกลมชั้นในพอดี -->
   <line x1="58.7" y1="310" x2="641.3" y2="310"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
   <line x1="58.7" y1="390" x2="641.3" y2="390"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
 
   <!-- เส้นทแยง: ปลายเส้นตัดวงกลมชั้นในพอดี -->
   <line x1="142.2" y1="142.2" x2="310" y2="310"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
   <line x1="557.8" y1="142.2" x2="390" y2="310"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
   <line x1="142.2" y1="557.8" x2="310" y2="390"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
   <line x1="557.8" y1="557.8" x2="390" y2="390"
-        stroke="#111" stroke-width="2.5"/>
+        stroke="#D4AF37" stroke-width="2.5"/>
 
   <!-- ช่องกลาง -->
   <rect x="310" y="310" width="80" height="80"
-        fill="white" stroke="#111" stroke-width="2.5"/>
+        fill="white" stroke="#D4AF37" stroke-width="2.5"/>
 
   <!-- ชื่อราศี: อยู่นอกวงกลม -->
-  <g fill="#111"
+  <g fill="#50C878"
      font-family="Tahoma, Noto Sans Thai, sans-serif"
      font-size="20"
      text-anchor="middle">
-    <text x="350" y="22">เมษ</text>
-    <text x="170" y="62">พฤษภ</text>
-    <text x="95" y="170">เมถุน</text>
-    <text x="42" y="355">กรกฎ</text>
-    <text x="95" y="530">สิงห์</text>
+    <text x="350" y="28">เมษ</text>
+    <text x="170" y="68">พฤษภ</text>
+    <text x="50" y="200">เมถุน</text>
+    <text x="20" y="355">กรกฎ</text>
+    <text x="70" y="530">สิงห์</text>
     <text x="170" y="640">กันย์</text>
     <text x="350" y="684">ตุลย์</text>
     <text x="530" y="640">พิจิก</text>
-    <text x="605" y="530">ธนู</text>
-    <text x="658" y="355">มังกร</text>
-    <text x="605" y="170">กุมภ์</text>
-    <text x="530" y="62">มีน</text>
+    <text x="620" y="530">ธนู</text>
+    <text x="678" y="355">มังกร</text>
+    <text x="650" y="200">กุมภ์</text>
+    <text x="520" y="70">มีน</text>
   </g>
 
   <text x="350" y="360"
-        fill="#111"
+        fill="#50C878"
         font-family="Tahoma, Noto Sans Thai, sans-serif"
         font-size="24"
-        text-anchor="middle">ราศี</text>
+        text-anchor="middle">*</text>
 </svg>

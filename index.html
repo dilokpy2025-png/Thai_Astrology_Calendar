@@ -3,17 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ปฏิทินโหราศาสตร์ไทย</title>
+<title>ปฏิทินดาวรายวัน ตามหลักคัมภีร์สุริยยาตร์</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="app-shell">
   <header class="topbar">
     <div class="brand">
-      <h1>ปฏิทินโหราศาสตร์ไทย</h1>
-      <p>เลือกวันและเวลาเพื่อคำนวณสมผุสดาว 10 ดวง</p>
+      <div class="brand-mark" aria-hidden="true">☼</div>
+      <div class="brand-copy">
+      <h1>ปฏิทินดาวรายวัน ตามหลักคัมภีร์สุริยยาตร์</h1>
+      <p>เลือกวันและเวลาเพื่อคำนวณสมผุสดาว 10 ดวง ตามหลักคัมภีร์สุริยยาตร์</p>
+      </div>
     </div>
-    <div class="top-version">ตามหลักคัมภีร์สุริยยาตร์</div>
+    <div class="top-version"><strong>ปฏิทินดาวรายวัน V4.0</strong><span>คำนวณตามหลักคัมภีร์สุริยยาตร์ </span></div>
   </header>
 
   <main class="dashboard">
@@ -36,7 +39,14 @@
       </div>
 
       <div class="time-controls">
-        <label>เวลา <input id="time" type="time" value="09:00"></label>
+        <div class="time-picker-wrap">
+          <span class="time-label">เวลา</span>
+          <div class="time-picker" aria-label="เลือกเวลาแบบ 24 ชั่วโมง">
+            <select id="hour" aria-label="ชั่วโมง"></select>
+            <span class="time-colon">:</span>
+            <select id="minute" aria-label="นาที"></select>
+          </div>
+        </div>
         <button id="today" class="today-button">วันนี้</button>
       </div>
 
@@ -73,13 +83,13 @@
       </div>
 
       <div class="zodiac-stage">
-        <img class="zodiac-base" src="zodiac_wheel.svg?v=3.0" alt="ราศีจักร">
+        <img class="zodiac-base" src="zodiac_wheel.svg?v=3.4" alt="ราศีจักร">
         <div id="planetLayer" class="planet-layer"></div>
       </div>
 <div class="zodiac-note">
-        <span>ราศีจักรเป็นภาพอ้างอิง</span>
-        <span>เลข ๑–๙, ๐ แทนดาว</span>
-        <span>องศาอ่านจากตารางด้านขวา</span>
+        <span>-</span>
+        <span>ราศีจักร</span>
+        <span>-</span>
       </div>
     </section>
 
@@ -106,20 +116,10 @@
         </table>
       </div>
 
-      <div class="legend">
-        <h3>เลขดาว</h3>
-        <div class="legend-grid">
-          <span><b>๑</b> อาทิตย์</span><span><b>๒</b> จันทร์</span>
-          <span><b>๓</b> อังคาร</span><span><b>๔</b> พุธ</span>
-          <span><b>๕</b> พฤหัส</span><span><b>๖</b> ศุกร์</span>
-          <span><b>๗</b> เสาร์</span><span><b>๘</b> ราหู</span>
-          <span><b>๙</b> เกตุ</span><span><b>๐</b> มฤตยู</span>
-        </div>
-      </div>
     </section>
 
   </main>
-  <footer>พัฒนาโดย นายดิลก ภิญโญศรี</footer>
+  <footer><span>“ดวงดาวเป็นเพียงเข็มทิศ ชีวิตคือการเดินทาง”</span><span>ปฏิทินดาวรายวัน ตามหลักคัมภีร์สุริยยาตร์ V4.0</span></footer>
 </div>
 <script src="app.js"></script>
 </body>
